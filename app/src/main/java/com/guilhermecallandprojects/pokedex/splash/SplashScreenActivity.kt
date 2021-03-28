@@ -1,8 +1,10 @@
-package com.guilhermecallandprojects.pokedex
+package com.guilhermecallandprojects.pokedex.splash
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.guilhermecallandprojects.pokedex.MainActivity
+import com.guilhermecallandprojects.pokedex.R
 import kotlinx.android.synthetic.main.activity_splash_screen.*
 
 class SplashScreenActivity : AppCompatActivity() {
