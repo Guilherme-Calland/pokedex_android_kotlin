@@ -5,13 +5,13 @@
     android:layout_height="match_parent"
     tools:context=".fragments.PokemonList"
     android:orientation="vertical"
+    android:gravity="center_horizontal"
     >
 
-    <fragment
-        android:name="com.guilhermecallandprojects.pokedex.fragments.PokemonList"
-        android:id="@+id/fv_pokemon_fragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/pokemon_recyclerview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       />
 
 </LinearLayout>
