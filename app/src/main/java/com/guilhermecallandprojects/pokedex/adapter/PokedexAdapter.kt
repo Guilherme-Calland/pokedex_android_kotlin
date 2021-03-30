@@ -1,14 +1,18 @@
 package com.guilhermecallandprojects.pokedex.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.guilhermecallandprojects.pokedex.R
+import com.guilhermecallandprojects.pokedex.`interface`.IItemClickListener
+import com.guilhermecallandprojects.pokedex.common.Common
 import com.guilhermecallandprojects.pokedex.model.Pokemon
 import kotlinx.android.synthetic.main.pokedex_item.view.*
 
@@ -18,8 +22,22 @@ class PokedexAdapter(
     ) : RecyclerView.Adapter<PokedexAdapter.MyViewHolder>() {
 
     inner class MyViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
-        val imgPokemon = itemView.findViewById(R.id.iv_pokemon_image) as ImageView
-        val namePokemon = itemView.findViewById(R.id.tv_pokemon_name) as TextView
+        var imgPokemon = itemView.findViewById(R.id.iv_pokemon_image) as ImageView
+        var namePokemon = itemView.findViewById(R.id.tv_pokemon_name) as TextView
+
+        internal var itemClickListener: IItemClickListener ?= null
+
+        fun setItemClickListener(iItemClickListener: IItemClickListener){
+            this.itemClickListener = iItemClickListener
+        }
+
+        init{
+            imgPokemon = itemView.findViewById(R.id.iv_pokemon_image) as ImageView
+            namePokemon = itemView.findViewById(R.id.tv_pokemon_name) as TextView
+            itemView.setOnClickListener { view -> itemClickListener!!.onClick(view, adapterPosition) }
+        }
+
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -40,5 +58,13 @@ class PokedexAdapter(
         //glide is an image loading and caching library
         Glide.with(context).load(pokemonList[position].img).into(holder.imgPokemon)
         holder.namePokemon.text = pokemonList[position].name
+
+        holder.setItemClickListener(object: IItemClickListener{
+            override fun onClick(view: View, position: Int) {
+                LocalBroadcastManager.getInstance(context)
+                        .sendBroadcast(Intent(Common.KEY_ENABLE_HOME)
+                                .putExtra("position", position))
+            }
+        })
     }
 }
