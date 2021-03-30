@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_margin="16sp"
-    android:gravity="center_horizontal"
+    android:layout_margin="2sp"
     >
 
     <androidx.cardview.widget.CardView
@@ -13,8 +12,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:cardCornerRadius="12sp"
-        android:padding="16sp"
-        android:layout_margin="8sp"
+        android:padding="8sp"
+        android:layout_margin="2sp"
+        android:elevation="0sp"
         >
 
         <LinearLayout
@@ -22,15 +22,15 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="@color/pokemon_list_item_background"
-            android:gravity="center"
+            android:padding="4sp"
             >
 
             <ImageView
                 android:id="@+id/iv_pokemon_image"
                 android:scaleType="fitXY"
-                android:layout_width="150sp"
-                android:layout_height="150sp"
-                android:layout_marginBottom="8sp"
+                android:layout_width="80sp"
+                android:layout_height="80sp"
+                android:layout_marginBottom="4sp"
                 android:background="@color/pokemon_list_item_background"
                 />
 
@@ -41,9 +41,10 @@
                 android:layout_height="wrap_content"
                 android:text="Pikachu"
                 android:layout_marginBottom="4sp"
-                android:textSize="16sp"
+                android:textSize="10sp"
                 android:textStyle="bold"
-
+                android:background="@color/pokemon_list_item_background"
+                android:paddingBottom="4sp"
                 />
 
 
