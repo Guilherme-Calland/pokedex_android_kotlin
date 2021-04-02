@@ -5,10 +5,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_margin="2sp"
+    android:background="@color/pokedex_background_color"
     >
 
     <androidx.cardview.widget.CardView
-        android:background="@color/pokemon_list_item_background"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:cardCornerRadius="12sp"
@@ -18,10 +19,11 @@
         >
 
         <LinearLayout
+
+            android:background="@color/pokemon_list_item_background"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@color/pokemon_list_item_background"
             android:padding="4sp"
             >
 
@@ -31,7 +33,6 @@
                 android:layout_width="80sp"
                 android:layout_height="80sp"
                 android:layout_marginBottom="4sp"
-                android:background="@color/pokemon_list_item_background"
                 />
 
             <TextView
@@ -43,7 +44,6 @@
                 android:layout_marginBottom="4sp"
                 android:textSize="10sp"
                 android:textStyle="bold"
-                android:background="@color/pokemon_list_item_background"
                 android:paddingBottom="4sp"
                 />
 

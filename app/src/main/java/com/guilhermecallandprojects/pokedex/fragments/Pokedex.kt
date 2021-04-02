@@ -33,6 +33,8 @@ class Pokedex : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+
+
         // Inflate the layout for this fragment
         val itemView = inflater.inflate(R.layout.fragment_pokemon_list, container, false)
         recyclerView = itemView.findViewById(R.id.pokemon_recyclerview) as RecyclerView

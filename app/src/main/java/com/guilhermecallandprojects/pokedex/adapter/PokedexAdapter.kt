@@ -7,12 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.guilhermecallandprojects.pokedex.R
 import com.guilhermecallandprojects.pokedex.`interface`.IItemClickListener
 import com.guilhermecallandprojects.pokedex.common.Common
+import com.guilhermecallandprojects.pokedex.common.showShortToast
 import com.guilhermecallandprojects.pokedex.model.Pokemon
 import kotlinx.android.synthetic.main.pokedex_item.view.*
 

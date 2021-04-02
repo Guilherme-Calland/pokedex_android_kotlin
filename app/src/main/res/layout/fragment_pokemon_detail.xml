@@ -1,14 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PokemonDetail">
+    android:background="@color/pokedex_background_color"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.PokemonDetail"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        >
 
-</FrameLayout>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16sp"
+            android:layout_marginTop="80sp"
+            app:cardElevation="0sp"
+            app:cardCornerRadius="8sp"
+            app:cardBackgroundColor="@color/pokemon_list_item_background"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:padding="16sp"
+                android:layout_marginTop="80sp"
+                android:layout_marginBottom="8sp"
+                >
+
+                <TextView
+                    android:id="@+id/tv_pokemon_name"
+                    android:text="Pikachu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_pokemon_height"
+                    android:textSize="16sp"
+                    android:text="Height"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_pokemon_weight"
+                    android:textSize="16sp"
+                    android:text="Weight"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="Type"
+                    android:textStyle="bold"
+                    />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="40sp"
+                    android:id="@+id/rv_pokemon_type"
+                    >
+                </androidx.recyclerview.widget.RecyclerView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="Weakness"
+                    android:textStyle="bold"
+                    />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="40sp"
+                    android:id="@+id/rv_pokemon_weakness"
+                    >
+                </androidx.recyclerview.widget.RecyclerView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="Prev Evolution"
+                    android:textStyle="bold"
+                    />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="40sp"
+                    android:id="@+id/rv_pokemon_prev_evolution"
+                    >
+                </androidx.recyclerview.widget.RecyclerView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="Next Evolution"
+                    android:textStyle="bold"
+                    />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="40sp"
+                    android:id="@+id/rv_pokemon_next_evolution"
+                    >
+                </androidx.recyclerview.widget.RecyclerView>
+
+            </LinearLayout>
+
+
+
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:layout_width="150sp"
+            android:layout_height="150sp"
+            android:id="@+id/iv_pokemon_image"
+            android:src="@drawable/ic_launcher_background"
+            android:layout_centerHorizontal="true"
+            android:layout_alignTop="@id/card_view"
+            android:layout_marginTop="-60sp"
+            />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

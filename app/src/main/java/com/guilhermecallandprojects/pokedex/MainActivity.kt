@@ -9,17 +9,19 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.fragment.app.FragmentManager
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import androidx.recyclerview.widget.RecyclerView
 import com.guilhermecallandprojects.pokedex.common.Common
+import com.guilhermecallandprojects.pokedex.common.showShortToast
+import com.guilhermecallandprojects.pokedex.fragments.PokemonDetail
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_splash_screen.*
 
 class MainActivity : AppCompatActivity() {
 
     //create broadcast handle
     private val showDetail = object: BroadcastReceiver(){
         override fun onReceive(context: Context?, intent: Intent?) {
-            if(intent!!.action!!.toString() == Common.KEY_ENABLE_HOME){
 
+            if(intent!!.action!!.toString() == Common.KEY_ENABLE_HOME){
                 //replace fragment
                 val detailFragment = PokemonDetail.getInstance()
                 val position = intent.getIntExtra("position", -1)
@@ -36,10 +38,10 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         //register broadcast
         LocalBroadcastManager.getInstance(this)
@@ -47,16 +49,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
         when(item!!.itemId){
             android.R.id.home -> {
                 //clear all fragment in stack with name 'detail'
                 supportFragmentManager.popBackStack("detail", FragmentManager.POP_BACK_STACK_INCLUSIVE)
             }
-
         }
 
         return true
     }
+
 
 }
