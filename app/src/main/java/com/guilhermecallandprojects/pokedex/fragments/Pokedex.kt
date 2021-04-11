@@ -1,10 +1,14 @@
 package com.guilhermecallandprojects.pokedex.fragments
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.getSystemService
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.guilhermecallandprojects.pokedex.R
@@ -35,13 +39,24 @@ class Pokedex : Fragment() {
                               savedInstanceState: Bundle?): View? {
 
 
-        // Inflate the layout for this fragment
-        val itemView = inflater.inflate(R.layout.fragment_pokemon_list, container, false)
-        recyclerView = itemView.findViewById(R.id.pokemon_recyclerview) as RecyclerView
-        recyclerView.setHasFixedSize(true)
-        recyclerView.layoutManager = GridLayoutManager(activity, 3)
-        retreiveData()
-        return itemView
+        val connectionManager: ConnectivityManager = context!!.getSystemService( Context.CONNECTIVITY_SERVICE ) as ConnectivityManager
+        val activeNetwork: NetworkInfo?  = connectionManager.activeNetworkInfo
+        val isConnected = activeNetwork?.isConnectedOrConnecting == true
+
+        //check for internet connection
+        if(isConnected){
+            // Inflate the layout for this fragment
+            val pokedexItemView = inflater.inflate(R.layout.fragment_pokemon_list, container, false)
+            recyclerView = pokedexItemView.findViewById(R.id.pokemon_recyclerview) as RecyclerView
+            recyclerView.setHasFixedSize(true)
+            recyclerView.layoutManager = GridLayoutManager(activity, 3)
+            retreiveData()
+            return pokedexItemView
+        } else {
+            val noInternetItemView = inflater.inflate(R.layout.fragment_no_internet, container, false)
+
+            return noInternetItemView
+        }
     }
 
     private fun retreiveData() {
