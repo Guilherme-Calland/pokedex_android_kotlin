@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.guilhermecallandprojects.pokedex.R
+import com.guilhermecallandprojects.pokedex.adapter.PokemonEvolutionAdapter
+import com.guilhermecallandprojects.pokedex.adapter.PokemonTypeAdapter
 import com.guilhermecallandprojects.pokedex.common.Common
 import com.guilhermecallandprojects.pokedex.model.Pokemon
 import kotlinx.android.synthetic.main.fragment_pokemon_list.*
@@ -81,5 +83,24 @@ class PokemonDetail : Fragment() {
         pokemon_name.text = pokemon.name
         pokemon_height.text = "Height: ${pokemon.height}"
         pokemon_weight.text = "Weight: ${pokemon.weight}"
+
+        val typeAdapter = PokemonTypeAdapter(activity!!,pokemon.type!!)
+        pokemon_type.adapter = typeAdapter
+
+        val weaknessAdapter = PokemonTypeAdapter(activity!!,pokemon.weaknesses!!)
+        pokemon_weakness.adapter = weaknessAdapter
+
+
+        if(pokemon.prev_evolution != null){
+            val prevEvolutionAdapter = PokemonEvolutionAdapter(activity!!, pokemon.prev_evolution!!)
+            pokemon_prev_evolution.adapter = prevEvolutionAdapter
+        }
+
+        if(pokemon.next_evolution != null){
+            val nextEvolutionAdapter = PokemonEvolutionAdapter(activity!!, pokemon.next_evolution!!)
+            pokemon_next_evolution.adapter = nextEvolutionAdapter
+        }
+
+
     }
 }

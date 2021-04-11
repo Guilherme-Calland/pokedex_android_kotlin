@@ -10,5 +10,5 @@
 
 <!--    custom resources-->
     <color name="pokedex_background_color">#3A3A3A</color>
-    <color name="pokemon_list_item_background">#333333</color>
+    <color name="pokemon_list_item_background">#232323</color>
 </resources>

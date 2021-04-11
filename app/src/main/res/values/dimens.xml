@@ -2,5 +2,6 @@
 <resources>
 
     <dimen name = "spacing" > 4sp </dimen>
+    <dimen name="recyclerViewMargins">4sp</dimen>
 
 </resources>
