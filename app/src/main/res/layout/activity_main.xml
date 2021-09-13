@@ -8,6 +8,32 @@
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="@color/pokemon_list_item_background"
+        android:orientation="horizontal"
+        android:paddingVertical="8sp"
+        android:paddingLeft="8sp"
+        >
+
+        <ImageView
+            android:layout_width="35sp"
+            android:layout_height="35sp"
+            android:src="@drawable/pokeball"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:layout_marginLeft="4sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="POKEDEX"
+            android:textStyle="bold"
+            android:textSize="32sp"/>
+
+    </LinearLayout>
+
     <fragment
         android:name="com.guilhermecallandprojects.pokedex.fragments.Pokedex"
         android:id="@+id/fv_pokemon_fragment"

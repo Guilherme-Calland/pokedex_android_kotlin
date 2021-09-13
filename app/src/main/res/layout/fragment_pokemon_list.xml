@@ -8,14 +8,9 @@
     android:background="@color/pokedex_background_color"
     >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
-
     <androidx.recyclerview.widget.RecyclerView
         android:layout_gravity="center_horizontal"
-        android:paddingTop="32sp"
+        android:paddingTop="24sp"
         android:clipToPadding="false"
         android:id="@+id/pokemon_recyclerview"
         android:layout_width="wrap_content"
